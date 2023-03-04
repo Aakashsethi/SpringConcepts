@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ChefDetailsDto {
+public class ChefUserDetailsDto {
 
     private String id;
     private String name;

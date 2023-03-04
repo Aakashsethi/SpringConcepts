@@ -1,5 +1,8 @@
 package com.NoshVersion01.controller;
 
+import com.NoshVersion01.modeOrDto.CalculatorDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,6 +22,14 @@ public class CalculatorController {
             result = num2 - num1;
         }
         return result;
+    }
+
+    @PostMapping("/mul")
+    public ResponseEntity multiply(@RequestBody CalculatorDto calculatorDto){
+        Double result = null;
+        result = calculatorDto.getNum1() * calculatorDto.getNum2() * calculatorDto.getNum3();
+        ResponseEntity<Double> responseEntity = new ResponseEntity<Double>(result, HttpStatus.CREATED);
+        return responseEntity;
     }
 
 }
